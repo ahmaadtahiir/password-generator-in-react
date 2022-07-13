@@ -7,7 +7,7 @@ import { COPY_Fail, COPY_SUCCESS } from './message';
 
 const App = () => {
   const [password, setPassword] = useState("")
-  const [passwordLength, setPasswordLength] = useState(26)
+  const [passwordLength, setPasswordLength] = useState(15)
   const [includeUpperCase, setIncludeUpperCase] = useState(false)
   const [includeLowerCase, setIncludeLowerCase] = useState(false)
   const [includeNumbers, setIncludeNumbers] = useState(false)
@@ -31,10 +31,8 @@ const App = () => {
         characterList = characterList + specialCharacters
       }
       setPassword(createPassword(characterList))
-      notify("Password is generated successfully", false)
+      // notify("Password is generated successfully", false)
     }
-
-
   }
   const createPassword = (characterList) => {
     let password = ""
@@ -46,32 +44,31 @@ const App = () => {
     return password
   }
   const copyToClipboard = (password) => {
-
     navigator.clipboard.writeText(password)
   }
   const notify = (message, hasError = false) => {
     if (hasError) {
       toast.error(message, {
         position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
+        autoClose: 4000,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        // draggable: false,
         progress: undefined,
       });
     }
-    else {
-      toast(message, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    // else {
+    //   toast(message, {
+    //     position: "top-center",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
 
   }
   const handleCopyPassword = (e) => {
