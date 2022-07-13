@@ -4,6 +4,7 @@ import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from '
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { COPY_Fail, COPY_SUCCESS } from './message';
+import copyIcon from '../src/assets/copyIcon.png'
 
 const App = () => {
   const [password, setPassword] = useState("")
@@ -50,7 +51,7 @@ const App = () => {
     if (hasError) {
       toast.error(message, {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 3000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -58,17 +59,17 @@ const App = () => {
         progress: undefined,
       });
     }
-    // else {
-    //   toast(message, {
-    //     position: "top-center",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // }
+    else {
+      toast(message, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        // draggable: true,
+        progress: undefined,
+      });
+    }
 
   }
   const handleCopyPassword = (e) => {
@@ -92,7 +93,8 @@ const App = () => {
           <div className="generator__password">
             <h3 >{password}</h3>
             <button className="copy__btn">
-              <i onClick={handleCopyPassword} className="fas fa-clipboard"></i>
+              <img src={copyIcon} className="copyIcon" onClick={handleCopyPassword}/>
+              {/* <i onClick={handleCopyPassword} className="fas fa-clipboard">copy</i> */}
             </button>
           </div>
           <div className="form-group">
