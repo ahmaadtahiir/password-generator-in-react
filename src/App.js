@@ -92,12 +92,12 @@ const App = () => {
           <div className="generator__password">
             <h3 >{password}</h3>
             <button className="copy__btn">
-              <i onClick={handleCopyPassword} className="far fa-clipboard"></i>
+              <i onClick={handleCopyPassword} className="fas fa-clipboard"></i>
             </button>
           </div>
           <div className="form-group">
             <label htmlFor="password-strength">Password length</label>
-            <input className="pw" defaultValue={passwordLength} onChange={(e) => setPasswordLength(e.target.value)} type="number" id="password-stregth" name="password-strength" max="26" min="8" />
+            <input className="pw" defaultValue={passwordLength} onChange={(e) => setPasswordLength(e.target.value)} type="number" id="password-stregth" name="password-strength" max="15" min="8" />
           </div>
           <div className="form-group">
             <label htmlFor="uppercase-letters">Add Uppercase Letters</label>
